@@ -1,0 +1,5 @@
+id,subject,prompt,options,answerKey
+1,Math,"What is 5 * 8?","35;40;45;50",40
+2,History,"Who discovered Brazil?","Pedro Álvares Cabral;Christopher Columbus;Vasco da Gama",Pedro Álvares Cabral
+3,Science,"What is the chemical symbol for water?","O2;CO2;H2O;H2",H2O
+4,Math,"What is the square root of 81?","7;8;9;10",9

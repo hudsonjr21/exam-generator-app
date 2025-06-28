@@ -1,15 +1,15 @@
-import { IQuestion } from '@exam-generator/core/src/question.interface';
+import { IExam } from '@exam-generator/core/src/exam.interface';
 
 const API_URL = 'http://localhost:3000';
 
-export interface GeneratedExam {
-  questions: IQuestion[];
-}
+// A função agora retorna uma Promise do tipo IExam
+export async function generateExam(subject: string, count: number): Promise<IExam> {
+  const params = new URLSearchParams({ subject, count: count.toString() });
+  const response = await fetch(`${API_URL}/exams/generate?${params.toString()}`);
 
-export async function generateMockExam(): Promise<GeneratedExam> {
-  const response = await fetch(`${API_URL}/exams/generate`);
   if (!response.ok) {
-    throw new Error('Failed to fetch exam from API');
+    const errorData = await response.json().catch(() => null);
+    throw new Error(errorData?.message || 'Failed to fetch exam from API');
   }
   return response.json();
 }
