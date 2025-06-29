@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -24,68 +24,118 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ================================================================== */
+/* REGRAS DE IMPRESSÃO COMPLETAS E CORRIGIDAS                       */
+/* ================================================================== */
 @media print {
-  /* Define as margens da página impressa para um valor mínimo */
+  /* Define as margens da página impressa */
   @page {
-    margin: 1cm;
+    size: A4;
+    margin: 0.8cm;
   }
 
-  body.printing-active {
+  body {
     background-color: white !important;
   }
-  
-  /* Por padrão, esconde tudo que não está na área de impressão */
-  body.printing-active > * {
-    visibility: hidden;
+
+  /* Regra principal: TUDO que tiver a classe 'no-print' some na impressão */
+  .no-print {
+    display: none !important;
   }
 
-  /* Mostra APENAS a nossa área de impressão e a faz ocupar a tela toda */
-  .printable-area, .printable-area * {
-    visibility: visible;
-  }
-
+  /* Faz a área de impressão ocupar toda a página */
   .printable-area {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
+    height: 100%;
     margin: 0 !important;
     padding: 0 !important;
   }
-  
-  .printable-area .no-print {
-    display: none !important;
+
+  /* Remove sombras da área impressa */
+  .printable-area > div > section,
+  .printable-area > div > aside {
+    box-shadow: none !important;
+    border: none !important;
   }
 
-  /* Regras para esconder/mostrar as seções corretas */
+  /* --- REGRAS PARA A PÁGINA DE PROVA --- */
   .printing-exam .answer-key-section {
     display: none !important;
   }
 
-  .printing-answer-key .exam-section {
-    display: none !important;
-  }
-  
-  .exam-section {
-    box-shadow: none !important;
-    border: none !important;
+  .printing-exam .exam-section {
     padding: 0 !important;
   }
 
-  /* Layout de 2 colunas para as questões */
-  .questions-container {
+  .printing-exam .questions-container {
     column-count: 2;
-    column-gap: 2rem; /* Espaço entre as colunas */
-  }
-  
-  /* Previne que uma questão seja cortada e controla o espaço entre elas */
-  .question-item {
-    break-inside: avoid;
-    padding-bottom: 0.5rem; /* Espaço ABAIXO de cada questão */
+    column-gap: 2rem;
   }
 
-  /* A nova regra para forçar o espaçamento mínimo */
-  .print-leading-tight {
-    line-height: 1.2 !important; /* Força um espaçamento entre linhas bem justo */
+  .printing-exam .question-item {
+    break-inside: avoid;
+    padding-bottom: 0.5rem;
+  }
+
+  /* --- REGRAS PARA A PÁGINA DE GABARITO --- */
+  .printing-answer-key .exam-section {
+    display: none !important;
+  }
+
+  /* --- REGRAS ESPECÍFICAS E SEGURAS PARA O CARTÃO-RESPOSTA --- */
+
+  /* Ativado quando imprimindo o Cartão-Resposta para criar 2 cartões por folha */
+  .printing-answer-sheet .a4-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    gap: 1cm;
+  }
+
+  /* Estiliza cada um dos 2 cartões na folha */
+  .printing-answer-sheet .answer-sheet-wrapper {
+    height: 48%;
+    flex-shrink: 0;
+    border: 1px dashed #999;
+    padding: 0.5cm;
+    box-sizing: border-box;
+  }
+
+  /* Garante que os itens de resposta não quebrem no meio */
+  .printing-answer-sheet .question-bubble-item {
+    break-inside: avoid;
+  }
+
+  /* Esconde a prova e o gabarito ao imprimir o cartão-resposta */
+  .printing-answer-sheet .exam-section,
+  .printing-answer-sheet .answer-key-section {
+    display: none !important;
+  }
+
+  /* --- REGRAS ESPECÍFICAS PARA O CARTÃO-RESPOSTA --- */
+  .printing-answer-sheet .exam-section,
+  .printing-answer-sheet .answer-key-section {
+    display: none !important;
+  }
+  .printing-answer-sheet .a4-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    gap: 1cm;
+  }
+  .printing-answer-sheet .answer-sheet-wrapper {
+    height: 48%;
+    flex-shrink: 0;
+    border: 1px dashed #999;
+    padding: 0.5cm;
+    box-sizing: border-box;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }

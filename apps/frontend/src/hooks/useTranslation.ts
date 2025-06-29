@@ -1,19 +1,23 @@
+'use client';
+
 import ptBR from '../locales/pt-BR.json';
 
+// Exportamos estes tipos para que outros componentes possam usá-los
+export type TranslationKey = keyof typeof ptBR;
+export type TranslationFunction = (key: TranslationKey) => string;
+
 const translations = {
-'pt-BR': ptBR,
+  'pt-BR': ptBR,
 };
 
-const currentLocale = 'pt-BR'; // Por enquanto, fixo em português
+const currentLocale = 'pt-BR';
 
-type TranslationKey = keyof typeof ptBR;
+const useTranslation = (): { t: TranslationFunction } => {
+  const t = (key: TranslationKey): string => {
+    return translations[currentLocale][key] || key;
+  };
 
-const useTranslation = () => {
-const t = (key: TranslationKey) => {
-return translations['pt-BR'][key] || key; // Retorna a chave se a tradução não existir
-};
-
-return { t };
+  return { t };
 };
 
 export default useTranslation;
