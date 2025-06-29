@@ -1,0 +1,11 @@
+{
+"pageTitle": "Gerador de Provas",
+"subjectLabel": "Matéria",
+"questionsLabel": "Número de Questões",
+"generateButton": "Gerar Prova",
+"generatingButton": "Gerando...",
+"examHeader": "Prova Gerada para:",
+"answerKeyHeader": "Gabarito",
+"questionLabel": "Questão",
+"optionsLabel": "Opções"
+}

@@ -26,12 +26,12 @@ export class ExamCsvRepository {
 
     fs.createReadStream(csvPath)
       .pipe(csv())
-      .on('data', (row) => {
+      .on('data', (row: Record<string, string>) => {
         const question: IQuestionWithAnswer = {
           id: row.id,
           subject: row.subject,
           prompt: row.prompt,
-          options: row.options.split(';'),
+          options: row.options ? row.options.split(';') : [],
           answerKey: row.answerKey, // Agora lemos a resposta correta
         };
         this.questions.push(question);
@@ -46,5 +46,23 @@ export class ExamCsvRepository {
 
   findAll(): IQuestionWithAnswer[] {
     return this.questions;
+  }
+
+  getSubjectsWithCounts(): { subject: string; count: number }[] {
+    const subjectCounts: Record<string, number> = {};
+
+    // Conta as questões para cada matéria
+    for (const question of this.questions) {
+      if (!subjectCounts[question.subject]) {
+        subjectCounts[question.subject] = 0;
+      }
+      subjectCounts[question.subject]++;
+    }
+
+    // Transforma o objeto em um array no formato que queremos
+    return Object.entries(subjectCounts).map(([subject, count]) => ({
+      subject,
+      count,
+    }));
   }
 }

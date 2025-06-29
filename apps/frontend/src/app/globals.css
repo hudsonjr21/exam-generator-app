@@ -24,3 +24,68 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@media print {
+  /* Define as margens da página impressa para um valor mínimo */
+  @page {
+    margin: 1cm;
+  }
+
+  body.printing-active {
+    background-color: white !important;
+  }
+  
+  /* Por padrão, esconde tudo que não está na área de impressão */
+  body.printing-active > * {
+    visibility: hidden;
+  }
+
+  /* Mostra APENAS a nossa área de impressão e a faz ocupar a tela toda */
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .printable-area .no-print {
+    display: none !important;
+  }
+
+  /* Regras para esconder/mostrar as seções corretas */
+  .printing-exam .answer-key-section {
+    display: none !important;
+  }
+
+  .printing-answer-key .exam-section {
+    display: none !important;
+  }
+  
+  .exam-section {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Layout de 2 colunas para as questões */
+  .questions-container {
+    column-count: 2;
+    column-gap: 2rem; /* Espaço entre as colunas */
+  }
+  
+  /* Previne que uma questão seja cortada e controla o espaço entre elas */
+  .question-item {
+    break-inside: avoid;
+    padding-bottom: 0.5rem; /* Espaço ABAIXO de cada questão */
+  }
+
+  /* A nova regra para forçar o espaçamento mínimo */
+  .print-leading-tight {
+    line-height: 1.2 !important; /* Força um espaçamento entre linhas bem justo */
+  }
+}

@@ -1,9 +1,16 @@
 import { Controller, Get, Query, BadRequestException } from '@nestjs/common';
 import { GenerateExamUseCase } from '../application/use-cases/generate-exam.use-case';
 import { IExam } from '@exam-generator/core/src/exam.interface';
+// <-- 1. IMPORTAMOS O REPOSITÓRIO QUE FALTAVA -->
+import { ExamCsvRepository } from '../infrastructure/repositories/exam.csv.repository';
+
 @Controller('exams')
 export class ExamsController {
-  constructor(private readonly generateExamUseCase: GenerateExamUseCase) {}
+  // <-- 2. CONSTRUTOR ATUALIZADO RECEBENDO AS DUAS DEPENDÊNCIAS -->
+  constructor(
+    private readonly generateExamUseCase: GenerateExamUseCase,
+    private readonly examRepository: ExamCsvRepository,
+  ) {}
 
   @Get('generate')
   generateExam(
@@ -30,5 +37,12 @@ export class ExamsController {
       `Returning exam with ${exam.questions.length} questions and answer key.`,
     );
     return exam;
+  }
+
+  // <-- 3. NOVO MÉTODO/ENDPOINT PARA BUSCAR AS MATÉRIAS -->
+  @Get('subjects')
+  getAvailableSubjects() {
+    // Este método agora pode chamar 'this.examRepository' sem erro
+    return this.examRepository.getSubjectsWithCounts();
   }
 }
