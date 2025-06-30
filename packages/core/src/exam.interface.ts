@@ -1,4 +1,5 @@
-import { IQuestion } from './question.interface';
+import type { IQuestion } from './question.interface';
+export type { IQuestion };
 
 // Representa a resposta correta para uma única questão
 export interface IAnswerKeyItem {
@@ -8,6 +9,7 @@ export interface IAnswerKeyItem {
 
 // Representa a prova completa: as questões para o aluno e o gabarito para o professor
 export interface IExam {
+  version: string; // Ex: 'A', 'B', 'C'
   questions: IQuestion[];
   answerKey: IAnswerKeyItem[];
 }

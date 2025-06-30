@@ -1,48 +1,55 @@
 import { Controller, Get, Query, BadRequestException } from '@nestjs/common';
 import { GenerateExamUseCase } from '../application/use-cases/generate-exam.use-case';
 import { IExam } from '@exam-generator/core/src/exam.interface';
-// <-- 1. IMPORTAMOS O REPOSITÓRIO QUE FALTAVA -->
 import { ExamCsvRepository } from '../infrastructure/repositories/exam.csv.repository';
 
 @Controller('exams')
 export class ExamsController {
-  // <-- 2. CONSTRUTOR ATUALIZADO RECEBENDO AS DUAS DEPENDÊNCIAS -->
   constructor(
     private readonly generateExamUseCase: GenerateExamUseCase,
     private readonly examRepository: ExamCsvRepository,
   ) {}
 
   @Get('generate')
-  generateExam(
+  async generateExam(
+    @Query('csvFileName') csvFileName: string,
     @Query('subject') subject: string,
-    @Query('count') count: string,
-  ): IExam {
-    if (!subject || !count) {
+    @Query('objectiveCount') objectiveCount: string,
+    @Query('discursiveCount') discursiveCount: string,
+    @Query('versions') versions = '1',
+    @Query('common') common = '0',
+  ): Promise<IExam[]> {
+    if (
+      !csvFileName ||
+      !subject ||
+      objectiveCount === undefined ||
+      discursiveCount === undefined
+    ) {
       throw new BadRequestException(
-        'Subject and count query parameters are required.',
+        'Parâmetros obrigatórios: csvFileName, subject, objectiveCount, discursiveCount.',
       );
     }
 
-    const numberOfQuestions = parseInt(count, 10);
-    if (isNaN(numberOfQuestions) || numberOfQuestions <= 0) {
-      throw new BadRequestException('Count must be a positive number.');
-    }
-
-    const exam = this.generateExamUseCase.execute({
+    const exams = await this.generateExamUseCase.execute({
+      csvFileName,
       subject,
-      numberOfQuestions,
+      objectiveCount: parseInt(objectiveCount, 10),
+      discursiveCount: parseInt(discursiveCount, 10),
+      numberOfVersions: parseInt(versions, 10),
+      commonQuestions: parseInt(common, 10),
     });
 
-    console.log(
-      `Returning exam with ${exam.questions.length} questions and answer key.`,
-    );
-    return exam;
+    console.log(`Returning ${exams.length} exam version(s).`);
+    return exams;
   }
 
-  // <-- 3. NOVO MÉTODO/ENDPOINT PARA BUSCAR AS MATÉRIAS -->
   @Get('subjects')
-  getAvailableSubjects() {
-    // Este método agora pode chamar 'this.examRepository' sem erro
-    return this.examRepository.getSubjectsWithCounts();
+  async getAvailableSubjects(@Query('csvFileName') csvFileName: string) {
+    if (!csvFileName) {
+      throw new BadRequestException(
+        'O nome do banco de questões é obrigatório.',
+      );
+    }
+    return this.examRepository.getSubjectsWithCounts(csvFileName);
   }
 }

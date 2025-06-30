@@ -63,22 +63,35 @@ body {
   }
 
   /* --- REGRAS PARA A PÁGINA DE PROVA --- */
-  .printing-exam .answer-key-section {
+  .printing-exam .answer-key-section,
+  .printing-exam .answer-sheet-section {
     display: none !important;
   }
 
+  /* Aplica o tamanho de fonte mínimo para todo o texto da prova impressa */
   .printing-exam .exam-section {
     padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: 10pt !important; /* Fonte base para simular Arial 10 */
+    line-height: 1.3 !important;
   }
 
+  /* Garante que o cabeçalho também use a fonte menor */
+  .printing-exam .exam-header-text {
+    font-size: 9pt !important; /* Cabeçalho um pouco menor */
+  }
+
+  /* Garante que o layout de 2 colunas seja aplicado */
   .printing-exam .questions-container {
     column-count: 2;
-    column-gap: 2rem;
+    column-gap: 1.5rem; /* Diminui o espaço entre colunas */
   }
 
   .printing-exam .question-item {
     break-inside: avoid;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.5rem; /* Espaço mínimo entre as questões */
   }
 
   /* --- REGRAS PARA A PÁGINA DE GABARITO --- */
