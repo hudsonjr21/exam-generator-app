@@ -1,0 +1,50 @@
+id,subject,prompt,options,answerKey
+"1","Aplicativos para Escritórios","Explique a diferença entre uma célula e uma planilha no LibreOffice Calc. (Responda no verso da folha)","","•	Célula: É a menor unidade da planilha, onde são inseridos dados ou fórmulas.
+•	Planilha: É o conjunto de células organizadas em linhas e colunas, formando uma tabela."
+"2","Aplicativos para Escritórios","Qual fórmula deve ser usada para somar os valores das células de A1 até A10 no LibreOffice Calc?","=SOMA(A1:A10);=MEDIA(A1:A10);=MAIOR(A1:A10);=A1+A10;=CONT.VALORES(A1:A10)","=SOMA(A1:A10)"
+"3","Aplicativos para Escritórios","No LibreOffice Calc, para calcular a média dos valores de B2 até B8, qual função deve ser utilizada?","=SOMA(B2:B8);=MEDIA(B2:B8);=MÉDIA(B2:B8);=CONT.VALORES(B2:B8);=MÍNIMO(B2:B8)","=MEDIA(B2:B8)"
+"4","Aplicativos para Escritórios","Qual dos itens abaixo NÃO é um tipo de gráfico disponível no LibreOffice Calc?","Gráfico de Colunas;Gráfico de Pizza;Gráfico de Dispersão;Gráfico de Fluxo;Gráfico de Linhas","Gráfico de Fluxo"
+"5","Aplicativos para Escritórios","Para copiar o conteúdo de uma célula para outra no Calc, qual o atalho de teclado padrão?","Ctrl+C (copiar) e Ctrl+V (colar);Ctrl+S;Ctrl+P;Ctrl+N;Ctrl+Z","Ctrl+C (copiar) e Ctrl+V (colar)"
+"6","Aplicativos para Escritórios","Explique o que acontece ao arrastar a alça de preenchimento de uma célula com valor 1 e, em seguida, de uma célula ao lado com valor 2.","Nada acontece.;Repete o valor 1 em todas as células.;Preenche com números sequenciais (1, 2, 3, ...);Apaga os valores das células.;Preenche com zeros.","Preenche com números sequenciais (1, 2, 3, ...)"
+"7","Aplicativos para Escritórios","No Calc, qual dos comandos abaixo insere a data atual na célula selecionada?","Ctrl+Shift+F3;Ctrl+; (ponto e vírgula);Ctrl+Shift+; (ponto e vírgula);Ctrl+F2;Ctrl+D","Ctrl+; (ponto e vírgula)"
+"8","Aplicativos para Escritórios","Para transformar o texto de uma célula em maiúsculas, qual função pode ser usada no Calc?","=MINUSCULA(A1);=MAIUSCULA(A1);=CONCATENAR(A1);=PROCURAR(A1);=ALEATÓRIO()","=MAIUSCULA(A1)"
+"9","Aplicativos para Escritórios","Associe corretamente as funções às suas descrições:
+I. SOMA
+II. MÍNIMO
+III. MÁXIMO
+IV. CONT.VALORES
+
+( ) Retorna o menor valor de um intervalo.
+( ) Retorna o número de células preenchidas em um intervalo.
+( ) Retorna o maior valor de um intervalo.
+( ) Retorna a soma dos valores em um intervalo.","II, IV, III, I;I, IV, II, III;II, I, III, IV;IV, I, II, III;III, II, IV, I","II, IV, III, I"
+"10","Aplicativos para Escritórios","Qual das alternativas abaixo é correta sobre referências absolutas em fórmulas do Calc?","Mudam automaticamente ao copiar a fórmula.;São indicadas pelo uso do símbolo $ (cifrão), como em $A$1.;Apenas letras minúsculas são usadas.;Só funcionam em planilhas protegidas.;Não podem ser usadas em fórmulas.","São indicadas pelo uso do símbolo $ (cifrão), como em $A$1."
+"11","Aplicativos para Escritórios","No Calc, para classificar uma tabela por ordem alfabética de uma coluna, você deve:","Selecionar os dados e usar o comando de Classificação.;Usar a função =ORDENAR.;Apagar a coluna e digitá-la novamente.;Converter os dados em texto.;Utilizar filtros automáticos apenas.","Selecionar os dados e usar o comando de Classificação."
+"12","Aplicativos para Escritórios","Explique a utilidade do recurso de Filtro Automático no Calc. (Responda no verso da folha)","","•	O Filtro Automático permite exibir apenas os registros (linhas) que atendam a determinados critérios, facilitando a análise de grandes volumes de dados."
+"13","Aplicativos para Escritórios","No LibreOffice Calc, qual função retorna o número de células não vazias em um intervalo?","=SOMA();=CONT.VALORES();=MÉDIA();=MÍNIMO();=MÁXIMO()","=CONT.VALORES()"
+"14","Aplicativos para Escritórios","Qual comando do menu é utilizado para inserir uma nova planilha?","Arquivo > Novo > Planilha;Editar > Inserir;Inserir > Planilha;Exibir > Planilha;Ferramentas > Planilha","Inserir > Planilha"
+"15","Aplicativos para Escritórios","No Calc, a função =SE(A1>10; 'Maior'; 'Menor ou igual') retorna:","'Maior' se o valor de A1 for maior que 10, senão 'Menor ou igual'.;A soma dos valores de A1 e 10.;O valor 10 sempre.;'Menor ou igual' apenas se A1 for negativo.;Erro de sintaxe.","'Maior' se o valor de A1 for maior que 10, senão 'Menor ou igual'."
+"16","Aplicativos para Escritórios","Explique o objetivo do recurso de Congelar Linhas/Colunas no Calc. (Responda no verso da folha)","","•	Congelar linhas ou colunas permite que elas permaneçam visíveis enquanto você rola a planilha, facilitando a navegação em grandes conjuntos de dados."
+"17","Aplicativos para Escritórios","Para mesclar células no Calc, o caminho correto é:","Selecionar as células > Formatar > Mesclar células.;Selecionar as células > Inserir > Mesclar.;Selecionar as células > Dados > Mesclar.;Selecionar as células > Ferramentas > Mesclar.;Selecionar as células > Exibir > Mesclar.","Selecionar as células > Formatar > Mesclar células."
+"18","Aplicativos para Escritórios","Qual das funções abaixo retorna o valor mais alto em um intervalo de células?","=SOMA();=MÍNIMO();=CONT.VALORES();=MÁXIMO();=MEDIA()","=MÁXIMO()"
+"19","Aplicativos para Escritórios","No Calc, para inserir uma fórmula rapidamente, você pode iniciar digitando na célula o seguinte caractere:","= (sinal de igual);+ (sinal de mais);- (sinal de menos);# (cerquilha);: (dois pontos)","= (sinal de igual)"
+"20","Aplicativos para Escritórios","Explique o que é uma referência relativa em fórmulas do Calc. (Responda no verso da folha)","","•	Referência relativa é aquela que se adapta automaticamente ao copiar a fórmula para outras células, sem o uso do cifrão ($)."
+"21","Aplicativos para Escritórios","Qual dessas opções permite inserir um comentário em uma célula?","Clique direito na célula > Inserir comentário.;Arquivo > Novo > Comentário.;Formatar > Célula > Comentário.;Ferramentas > Comentários.;Não é possível inserir comentários no Calc.","Clique direito na célula > Inserir comentário."
+"22","Aplicativos para Escritórios","No Calc, ao mover uma célula, o que acontece com as fórmulas que fazem referência a ela?","Elas são atualizadas automaticamente para apontar para a nova localização.;Elas são excluídas.;Nada acontece, continuam apontando para a célula antiga.;O valor das fórmulas é apagado.;Todas as fórmulas são recalculadas.","Elas são atualizadas automaticamente para apontar para a nova localização."
+"23","Aplicativos para Escritórios","Qual função pode ser usada para contar quantas células, em um intervalo, possuem um valor maior que 100?","=CONT.SE(intervalo; \">100\");=SOMA.SE(intervalo; \">100\");=CONT.VALORES(intervalo);=MÉDIA.SE(intervalo; \">100\");=SE(intervalo>100)","=CONT.SE(intervalo; \">100\")"
+"24","Aplicativos para Escritórios","O recurso de Validação de Dados no Calc serve para:","Restringir os tipos de dados que podem ser inseridos em uma célula.;Proteger a planilha com senha.;Criar gráficos automaticamente.;Mesclar células.;Inserir comentários em massa.","Restringir os tipos de dados que podem ser inseridos em uma célula."
+"25","Aplicativos para Escritórios","No Calc, para salvar uma planilha em PDF, qual o caminho correto?","Arquivo > Exportar como PDF;Arquivo > Salvar como PDF;Arquivo > Imprimir > PDF;Arquivo > Compartilhar > PDF;Editar > Exportar PDF","Arquivo > Exportar como PDF"
+"26","Aplicativos para Escritórios","Explique para que serve o recurso de Preenchimento Relâmpago (Preenchimento Automático) no Calc. (Responda no verso da folha)","","•	Preenchimento automático completa séries de dados (como datas, números ou padrões) quando você arrasta a alça de preenchimento."
+"27","Aplicativos para Escritórios","Para acessar rapidamente a ajuda do LibreOffice Calc, o atalho padrão é:","F1;F2;F5;Ctrl+H;Ctrl+F1","F1"
+"28","Aplicativos para Escritórios","Qual dessas opções NÃO é uma extensão de arquivo suportada para salvar uma planilha no Calc?",".ods;.xls;.csv;.docx;.xlsx",".docx"
+"29","Aplicativos para Escritórios","Associe os atalhos aos seus comandos no LibreOffice Calc:
+I. Ctrl+C
+II. Ctrl+V
+III. Ctrl+Z
+IV. Ctrl+S
+
+( ) Colar conteúdo copiado.
+( ) Salvar planilha.
+( ) Desfazer última ação.
+( ) Copiar conteúdo selecionado.","II, IV, III, I;I, III, II, IV;II, III, IV, I;IV, I, III, II;III, II, I, IV","II, IV, III, I"
+"30","Aplicativos para Escritórios","O que diferencia o LibreOffice Calc de outros editores de planilhas?","É um software livre e gratuito.;Funciona apenas no Windows.;Não permite criar gráficos.;Não possui fórmulas matemáticas.;Não exporta para PDF.","É um software livre e gratuito."

@@ -12,4 +12,7 @@ export interface IExam {
   version: string; // Ex: 'A', 'B', 'C'
   questions: IQuestion[];
   answerKey: IAnswerKeyItem[];
+  professorName?: string;
+  courseName?: string;
+  examValue?: string;
 }

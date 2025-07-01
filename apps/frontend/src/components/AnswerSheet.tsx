@@ -41,8 +41,8 @@ const AnswerSheet: React.FC<AnswerSheetProps> = ({
   const questionColumns = chunkArray(questionItems, 10);
 
   return (
-    <div className="answer-sheet-wrapper h-full flex flex-col p-2 text-xs">
-      <div className="grid items-center border-b-2 border-black pb-1 mb-2">
+    <div className="answer-sheet-wrapper h-full flex flex-col p-2 text-xs text-black">
+      <div className="grid items-center border-b-2 border-black pb-1 mb-2 ">
         <div className="col-start-1 row-start-1 justify-self-center">
           <h2 className="text-base font-bold">CARTÃO DE RESPOSTA</h2>
         </div>

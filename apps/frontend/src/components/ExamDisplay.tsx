@@ -34,7 +34,7 @@ export default function ExamDisplay({
               priority
             />
           </div>
-          <div className="flex-grow text-xs space-y-1">
+          <div className="flex-grow text-xs space-y-1 text-black">
             <div className="flex justify-between">
               <div>
                 <p>
@@ -73,7 +73,7 @@ export default function ExamDisplay({
         {exam.questions.map((q, index) => (
           <div key={q.id} className="question-item">
             <p
-              className="font-semibold text-sm text-gray-800 leading-tight"
+              className="font-semibold text-sm text-black leading-tight"
               dangerouslySetInnerHTML={{
                 __html: `${index + 1}) ${q.prompt.replace(/\n/g, '<br />')}`,
               }}
@@ -82,11 +82,14 @@ export default function ExamDisplay({
               {Array.isArray(q.options) &&
                 q.options.length > 0 &&
                 q.options.map((opt, optionIndex) => (
-                  <div key={opt} className="flex items-baseline">
-                    <span className="font-semibold mr-2 print:text-sm">
+                  <div
+                    key={`q-${q.id}-opt-${optionIndex}`}
+                    className="flex items-baseline"
+                  >
+                    <span className="font-semibold mr-2 text-black print:text-sm">
                       {String.fromCharCode(65 + optionIndex)})
                     </span>
-                    <span className="text-gray-700 leading-tight print:text-sm">
+                    <span className="text-black leading-tight print:text-sm">
                       {opt}
                     </span>
                   </div>

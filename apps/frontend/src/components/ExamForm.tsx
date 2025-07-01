@@ -67,13 +67,13 @@ export default function ExamForm({
     <fieldset disabled={disabled} className={formClasses}>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-b pb-6 mb-6">
-          <h2 className="col-span-full text-lg font-semibold text-gray-800">
+          <h2 className="col-span-full text-lg font-semibold text-black">
             Dados do Cabeçalho
           </h2>
           <div>
             <label
               htmlFor="professor"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Professor(a)
             </label>
@@ -88,7 +88,7 @@ export default function ExamForm({
           <div>
             <label
               htmlFor="curso"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Curso
             </label>
@@ -103,7 +103,7 @@ export default function ExamForm({
           <div>
             <label
               htmlFor="valor"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Valor da Prova
             </label>
@@ -118,13 +118,13 @@ export default function ExamForm({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
-          <h2 className="col-span-full text-lg font-semibold text-gray-800">
+          <h2 className="col-span-full text-lg font-semibold text-black">
             Seleção de Questões
           </h2>
           <div className="lg:col-span-2">
             <label
               htmlFor="subject"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               {t('subjectLabel')}
             </label>
@@ -148,7 +148,7 @@ export default function ExamForm({
           <div>
             <label
               htmlFor="objectiveCount"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Nº Objetivas
             </label>
@@ -174,7 +174,7 @@ export default function ExamForm({
           <div>
             <label
               htmlFor="discursiveCount"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Nº Discursivas
             </label>
@@ -200,7 +200,7 @@ export default function ExamForm({
           <div className="lg:col-span-2">
             <label
               htmlFor="versions"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-black"
             >
               Nº de Versões da Prova
             </label>

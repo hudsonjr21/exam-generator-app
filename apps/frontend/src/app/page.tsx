@@ -150,6 +150,9 @@ export default function Home() {
         discursiveCount,
         versions: numberOfVersions,
         common: commonQuestions,
+        professorName: professor,
+        courseName: curso,
+        examValue: valor,
       });
       setExams(data);
       setCurrentPage(0);
@@ -342,7 +345,7 @@ export default function Home() {
                 >
                   Anterior
                 </button>
-                <span className="font-semibold">
+                <span className="font-semibold text-black">
                   {currentPage + 1} de {exams.length}
                 </span>
                 <button

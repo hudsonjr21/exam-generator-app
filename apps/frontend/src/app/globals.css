@@ -24,10 +24,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+input,
+select,
+textarea,
+option,
+h2 {
+  color: #111 !important;
+  background: #fff !important;
+  opacity: 1 !important;
+}
+select option {
+  color: #111 !important;
+  background: #fff !important;
+}
 
-/* ================================================================== */
-/* REGRAS DE IMPRESSÃO COMPLETAS E CORRIGIDAS                       */
-/* ================================================================== */
 @media print {
   /* Define as margens da página impressa */
   @page {
@@ -150,5 +160,32 @@ body {
     box-sizing: border-box;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  body.modal-print-active .modal-wrapper {
+    background: #fff !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+  }
+  body.modal-print-active .modal-wrapper * {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove qualquer overlay do modal na impressão */
+  body.modal-print-active .modal-wrapper {
+    /* Remove qualquer bg-opacity do Tailwind (ex: bg-black bg-opacity-60) */
+    background-color: #fff !important;
+    background-image: none !important;
+  }
+
+  /* Remove qualquer possível sombra escura do modal */
+  body.modal-print-active .modal-wrapper > div {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
   }
 }

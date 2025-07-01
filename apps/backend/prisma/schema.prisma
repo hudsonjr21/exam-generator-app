@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  // Nosso banco de dados será um arquivo chamado dev.db
+  // que será criado dentro desta pasta 'prisma'
+  url      = "file:./dev.db"
+}
+
+// Modelo para guardar o histórico de cada prova gerada
+model ExamHistory {
+  id        String   @id @default(cuid())
+  name      String   // Ex: "Sistemas Operacionais - P1"
+  createdAt DateTime @default(now())
+  status    String   @default("Pendente") // "Pendente" ou "Corrigido"
+
+  // Usamos o tipo Json para guardar dados complexos de forma fácil e flexível
+  details   Json     // Guarda professor, curso, matéria, etc.
+  exams     Json     // Guarda o array completo de provas (versões A, B...) com questões e gabaritos
+}

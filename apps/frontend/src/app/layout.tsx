@@ -23,7 +23,7 @@ export default function RootLayout({
             className: 'no-print',
           }}
         />
-        <div className="flex h-screen bg-gray-100">
+        <div id="main-content-wrapper" className="flex h-screen bg-gray-100">
           <div className="no-print">
             <Sidebar />
           </div>

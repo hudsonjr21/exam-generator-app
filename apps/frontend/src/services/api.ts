@@ -16,6 +16,9 @@ export async function generateExam(params: {
   discursiveCount: number;
   versions: number;
   common: number;
+  professorName: string;
+  courseName: string;
+  examValue: string;
 }): Promise<IExam[]> {
   const queryParams = new URLSearchParams({
     csvFileName: params.csvFileName,
@@ -24,6 +27,9 @@ export async function generateExam(params: {
     discursiveCount: params.discursiveCount.toString(),
     versions: params.versions.toString(),
     common: params.common.toString(),
+    professor: params.professorName,
+    curso: params.courseName,
+    valor: params.examValue,
   });
 
   const response = await fetch(
@@ -69,5 +75,34 @@ export async function uploadCsv(file: File, fileName: string): Promise<any> {
     body: formData,
   });
   if (!response.ok) throw new Error('Failed to upload CSV');
+  return response.json();
+}
+
+export async function fetchHistory(): Promise<any[]> {
+  const response = await fetch(`${API_URL}/history`);
+  if (!response.ok) {
+    throw new Error('Falha ao buscar histórico de provas');
+  }
+  return response.json();
+}
+
+export async function deleteHistoryItem(id: string): Promise<void> {
+  const response = await fetch(`${API_URL}/history/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    const errorData = await response
+      .json()
+      .catch(() => ({ message: 'Falha ao excluir item do histórico.' }));
+    throw new Error(errorData.message);
+  }
+}
+
+export async function fetchHistoryItem(id: string): Promise<any> {
+  const response = await fetch(`${API_URL}/history/${id}`);
+  if (!response.ok) {
+    throw new Error('Falha ao buscar detalhes da prova');
+  }
   return response.json();
 }

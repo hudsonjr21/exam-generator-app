@@ -17,6 +17,9 @@ export interface GenerateExamParams {
   discursiveCount: number;
   numberOfVersions?: number;
   commonQuestions?: number;
+  professorName: string;
+  courseName: string;
+  examValue: string;
 }
 
 @Injectable()

@@ -25,7 +25,7 @@ export default function AnswerKey({ exam, t }: AnswerKeyProps) {
         <h2 className="text-2xl font-bold border-b pb-2 mb-4">
           {t('answerKeyHeader')}
         </h2>
-        <ol className="list-decimal list-inside space-y-2 font-mono text-lg">
+        <ol className="list-decimal list-inside space-y-2 font-mono text-lg text-black">
           {exam.answerKey.map((answer, index) => {
             const letter = getCorrectLetter(answer.questionId);
             return (
